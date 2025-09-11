@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "build:fast": "NODE_ENV=production nuxt build --no-fork-ts-checker",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

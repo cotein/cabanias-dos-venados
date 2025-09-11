@@ -1,110 +1,144 @@
 <template>
     <div id="main-menu" class="wsmainfull menu clearfix">
         <div class="wsmainwp clearfix">
-            <!-- HEADER BLACK LOGO -->
             <div class="desktoplogo">
                 <NuxtLink to="/" class="logo-black"><img src="/assets/images/logo.png" alt="logo" /></NuxtLink>
             </div>
-            <!-- HEADER WHITE LOGO -->
             <div class="desktoplogo">
                 <NuxtLink to="/" class="logo-white"><img src="/assets/images/logo.png" alt="logo" /></NuxtLink>
             </div>
-            <!-- MAIN MENU -->
             <nav class="wsmenu clearfix">
                 <ul class="wsmenu-list nav-theme">
-                    <!-- DROPDOWN SUB MENU -->
-                    <li aria-haspopup="true" class="mg_link" >
-                        <!-- <NuxtLink to="#" class="h-link">Home </NuxtLink> -->
-                       <a @click.prevent="scrollToSection('home')" href="#nuestro-lugar" class="h-link">Inicio</a>
+                    <li aria-haspopup="true" class="mg_link">
+                        <a 
+                            href="#home" 
+                            class="h-link menu-item"
+                            :class="{ 'active': activeSection === 'home' }"
+                        >
+                            Inicio
+                        </a>
                     </li>
-                    <li aria-haspopup="true" class="mg_link" >
-                        <!-- <NuxtLink to="#"  class="h-link">Nuestro lugar </NuxtLink> -->
-                        <a @click.prevent="scrollToSection('nuestro-lugar')" href="#nuestro-lugar" class="h-link">Nuestro lugar</a>
+                    <li aria-haspopup="true" class="mg_link">
+                        <a 
+                            href="#nuestro-lugar" 
+                            class="h-link menu-item"
+                            :class="{ 'active': activeSection === 'nuestro-lugar' }"
+                        >
+                            Nuestro lugar
+                        </a>
                     </li>
-                    <li aria-haspopup="true" class="mg_link" >
-                        <!-- <NuxtLink to="#"  class="h-link">Nuestro lugar </NuxtLink> -->
-                        <a @click.prevent="scrollToSection('cabanias')" href="#nuestro-lugar" class="h-link">Cabañas</a>
+                    <li aria-haspopup="true" class="mg_link">
+                        <a 
+                            href="#cabanias" 
+                            class="h-link menu-item"
+                            :class="{ 'active': activeSection === 'cabanias' }"
+                        >
+                            Cabañas
+                        </a>
                     </li>
-                    <li aria-haspopup="true" class="mg_link" >
-                        <!-- <NuxtLink to="#"  class="h-link">Nuestro lugar </NuxtLink> -->
-                        <a @click.prevent="scrollToSection('mapa')" href="#nuestro-lugar" class="h-link">Ubicación</a>
+                    <li aria-haspopup="true" class="mg_link">
+                        <a 
+                            href="#mapa" 
+                            class="h-link menu-item"
+                            :class="{ 'active': activeSection === 'mapa' }"
+                        >
+                            Ubicación
+                        </a>
                     </li>
                 </ul>
             </nav>
-            <!-- END MAIN MENU -->
-        </div>
+            </div>
     </div>
 </template>
-<script>
-import { reactive } from 'vue';
-export default {
-    setup() {
-        const state = reactive({
-        isOpen: [false, false]
-        });
-        const toggle = (index) => {
-        state.isOpen[index] = !state.isOpen[index];
-        };
-        return {
-        toggle,
-        isOpen: state.isOpen
-        };
-    },
-    mounted() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    destroyed() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        handleScroll() {
-            const menu = document.getElementById("main-menu");
-            const header = document.getElementById("header");
-            if (window.pageYOffset > 100) {
-                menu.classList.add("scroll");
-                header.classList.add("scroll");
-            } else {
-                menu.classList.remove("scroll");
-                header.classList.remove("scroll");
-            }
-        },
 
-        scrollToSection(id) {
-            const targetElement = document.getElementById(id);
+<script setup>
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
-            if (targetElement) {
-                const startPosition = window.pageYOffset; // Posición actual del scroll
-                const targetPosition = targetElement.getBoundingClientRect().top + startPosition; // Posición final
-                const distance = targetPosition - startPosition;
-                const duration = 1200; // Duración de la animación en milisegundos (1.2 segundos)
-                let startTime = null;
+const activeSection = ref('home');
 
-                function animateScroll(currentTime) {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    
-                    // Usar una función de easing para una animación más natural
-                    const easeProgress = 0.5 - 0.5 * Math.cos(progress * Math.PI);
+const handleScroll = () => {
+    const menu = document.getElementById("main-menu");
+    const header = document.getElementById("header");
+    
+    // Cambiar la clase del menú al hacer scroll
+    if (window.pageYOffset > 100) {
+        menu?.classList.add("scroll");
+        header?.classList.add("scroll");
+    } else {
+        menu?.classList.remove("scroll");
+        header?.classList.remove("scroll");
+    }
 
-                    window.scrollTo(0, startPosition + distance * easeProgress);
+    // Detectar la sección activa
+    detectActiveSection();
+};
 
-                    if (timeElapsed < duration) {
-                        requestAnimationFrame(animateScroll);
-                    }
-                }
-                requestAnimationFrame(animateScroll);
+const detectActiveSection = () => {
+    const sections = ['home', 'nuestro-lugar', 'cabanias', 'mapa'];
+    const scrollPosition = window.scrollY + 150; // offset para mejor detección
+
+    for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offsetTop = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetBottom = offsetTop + element.offsetHeight;
+
+            if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                activeSection.value = sectionId;
+                break;
             }
         }
-        /* scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        } */
     }
 };
+
+onMounted(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Detectar sección inicial al cargar
+    nextTick(() => {
+        detectActiveSection();
+    });
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
 </script>
+
+<style scoped>
+/* Mejoras para móviles */
+.menu-item {
+    position: relative;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* Quitar highlight en iOS */
+    touch-action: manipulation; /* Mejorar respuesta táctil */
+}
+
+/* Área táctil más grande en móviles */
+@media (max-width: 768px) {
+    .menu-item {
+        padding: 15px 10px;
+        display: block;
+        min-height: 44px; /* Mínimo recomendado por Apple */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Estado activo */
+.menu-item.active {
+    color: #007bff; /* Cambia por tu color primario */
+    font-weight: bold;
+}
+
+/* Suavizar transiciones */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Para navegadores que soportan scroll-padding */
+html {
+    scroll-padding-top: 80px; /* Altura de tu header. Ajusta este valor. */
+}
+</style>
