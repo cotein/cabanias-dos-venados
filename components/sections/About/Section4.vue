@@ -1,17 +1,16 @@
 <template>
     <section class="bg--04 bg--fixed py-100 ct-01 content-section division">
         <div class="container">
-            <!-- Bloque 1: Video con texto -->
             <div class="content-block mb-5">
                 <div class="row d-flex align-items-center min-vh-50">
-                    <div class="col-md-6 order-last order-md-1">
+                    <div class="col-md-6 order-md-1">
                         <div class="txt-block left-column wow fadeInRight h-100 d-flex align-items-center">
                             <div>
                                 <p class="p-lg">&quot;Descubre un refugio de serenidad y confort, donde el verde de nuestro parque se encuentra con el imponente paisaje de las sierras. Tus días de descanso junto a la piscina de aguas cristalinas, un oasis perfecto para renovar energías bajo el sol y disfrutar de momentos inolvidables. Nuestras cabañas te esperan para brindarte una experiencia única de desconexión y tranquilidad en un entorno natural privilegiado.&quot;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-first order-md-2">
+                    <div class="col-md-6 order-md-2">
                         <div class="img-block j-img video-preview right-column wow fadeInLeft h-100 d-flex align-items-center">
                             <video src="/videos/cbs1.mp4" width="100%" height="auto" autoplay loop controls
                                 poster="/videos/cbs1.png" class="rounded shadow-lg"></video>
@@ -20,24 +19,22 @@
                 </div>
             </div>
 
-            <!-- Separador elegante -->
             <div class="row">
                 <div class="col-12">
                     <hr class="divider-elegant my-1">
                 </div>
             </div>
 
-            <!-- Bloque 2: Carousel con texto -->
             <div class="content-block mb-5" id="cabanias">
                 <div class="row d-flex align-items-center min-vh-50">
-                    <div class="col-md-6 order-first order-md-1">
+                    <div class="col-md-6 order-md-1">
                         <div class="img-block wow fadeInLeft h-100 d-flex align-items-center">
                             <div class="w-100">
                                 <ElementsImageCarousel :images="imagesExterior" class="rounded shadow-lg" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-last order-md-2">
+                    <div class="col-md-6 order-md-2">
                         <div class="txt-block right-column wow fadeInRight h-100 d-flex align-items-center">
                             <div>
                                 <p class="p-lg">&quot;Sumérgete en el abrazo acogedor de la naturaleza. Descubre nuestras cabañas, donde la calidez y la serenidad de las sierras te esperan.&quot;</p>
@@ -47,17 +44,15 @@
                 </div>
             </div>
 
-            <!-- Separador elegante -->
             <div class="row">
                 <div class="col-12">
                     <hr class="divider-elegant my-1">
                 </div>
             </div>
 
-            <!-- Bloque 3: Imagen 360° Interior -->
             <div class="content-block mb-5">
                 <div class="row d-flex align-items-center min-vh-50">
-                    <div class="col-md-6 order-last order-md-1">
+                    <div class="col-md-6 order-md-1">
                         <div class="txt-block left-column wow fadeInRight h-100 d-flex align-items-center">
                             <div>
                                 <p class="p-lg">&quot;Embárcate en un recorrido virtual y siente la magia de nuestras cabañas. Haz clic y explora en 360° cada rincón de este espacio diseñado para cuatro personas, donde la comodidad se une con el encanto de la naturaleza.&quot;</p>
@@ -70,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-first order-md-2">
+                    <div class="col-md-6 order-md-2">
                         <div class="img-block wow fadeInLeft h-100 d-flex align-items-center">
                             <div class="w-100">
                                 <a href="https://www.google.com/local/place/fid/0x95d2e401e05e1475:0xf06e36c61088462d/photosphere?iu=https://lh3.googleusercontent.com/gps-cs-s/AC9h4npLVBrwHzVxqtwW1xTO_WsarL3KF47nHTo91t7Ov-KT4YIsvYo6v4QCX0AKc8L_aiwVCHWqdFKf7ZWKm0rAnFIQlVtkj4ShpECdsUBbA05xAFVbFN2eo1k88dUuVglEfYTXjtg%3Dw160-h106-k-no-pi-10-ya311.94666-ro-0-fo100&ik=CAoSFkNJSE0wb2dLRUlDQWdJREVnSUhnUVE%3D"
@@ -94,17 +89,15 @@
                 </div>
             </div>
 
-            <!-- Separador elegante -->
             <div class="row">
                 <div class="col-12">
                     <hr class="divider-elegant my-1">
                 </div>
             </div>
 
-            <!-- Bloque 4: Segunda imagen 360° -->
             <div class="content-block">
                 <div class="row d-flex align-items-center min-vh-50">
-                    <div class="col-md-6 order-first order-md-1">
+                    <div class="col-md-6 order-md-1">
                         <div class="img-block wow fadeInLeft h-100 d-flex align-items-center">
                             <div class="w-100">
                                 <a href="https://www.google.com/local/place/fid/0x95d2e401e05e1475:0xf06e36c61088462d/photosphere?iu=https://lh3.googleusercontent.com/gps-cs-s/AC9h4npqVfry4kzL3xpKfmY80Nu9DdaEQ564c3RP8lnDYrY26UFOTBFd_3ONxr7KZlwlJhVOxfnRQzD4H59grkko3mdsTR5As7iI2T_lbC6LdIvhOnZ_82anwjF9Prx1FTm5jFeVSGYm%3Dw160-h106-k-no-pi-10-ya3.7866724-ro-0-fo100&ik=CAoSF0NJSE0wb2dLRUlDQWdJREVnUDdteHdF"
@@ -125,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-last order-md-2">
+                    <div class="col-md-6 order-md-2">
                         <div class="txt-block right-column wow fadeInRight h-100 d-flex align-items-center">
                             <div>
                                 <p class="p-lg">&quot;Explora cada detalle de nuestros espacios interiores. Un ambiente cálido y acogedor te espera, diseñado pensando en tu comodidad y bienestar durante tu estadía en las sierras.&quot;</p>
@@ -253,6 +246,11 @@ const imagesExterior = [
     
     .content-block {
         margin-bottom: 3rem !important;
+    }
+
+    /* Regla para los divs dentro de row en móviles */
+    .row > [class*="col-"] {
+        order: unset !important; /* Resetea el orden para que sigan el flujo del documento */
     }
 }
 

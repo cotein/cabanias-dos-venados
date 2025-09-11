@@ -51,7 +51,8 @@
   font-weight: 700;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0); /* Sombra para que el texto resalte sobre la imagen */
   line-height: 1.2;
-  color: #ffffff
+  color: #ffffff;
+  margin-top: -31%;
 }
 
 /* Estilos para la segunda línea (subtítulo) */
@@ -71,6 +72,7 @@
   }
   .titulo-principal .subtitulo {
     font-size: 1.3rem;
+    font-weight: 800;
   }
 }
 </style>
