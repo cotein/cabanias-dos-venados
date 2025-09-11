@@ -1,7 +1,7 @@
 services:
   cabanias-dos-venados:
     build:
-      context: ./src
+      context: .
       dockerfile: Dockerfile
     container_name: cabanias-dos-venados
     restart: always
