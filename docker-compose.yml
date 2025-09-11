@@ -1,0 +1,15 @@
+services:
+  cabanias-dos-venados:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    container_name: cabanias-dos-venados
+    restart: always
+    ports:
+      - "3000:80"
+    networks:
+      - dynamic_home_network
+
+networks:
+  dynamic_home_network:
+    external: true

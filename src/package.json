@@ -1,0 +1,35 @@
+{
+  "name": "martex-nuxtjs-app",
+  "author": "alithemes",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.3.9",
+    "@nuxtjs/leaflet": "^1.3.2",
+    "@types/node": "^18.19.42",
+    "nuxt3-leaflet": "^1.0.12",
+    "autoprefixer": "^10.4.19",
+    "nuxt": "^3.12.4",
+    "postcss": "^8.4.40"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@types/leaflet.markercluster": "^1.5.6",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "animate.css": "^4.1.1",
+    "i": "^0.3.7",
+    "leaflet.markercluster": "^1.5.3",
+    "npm": "^9.9.3",
+    "leaflet": "^1.9.4",
+    "nuxt-swiper": "^1.2.2",
+    "sass": "^1.77.8",
+    "vue-leaflet-markercluster": "^0.6.1",
+    "wow.js": "^1.2.2"
+  }
+}
