@@ -1,7 +1,7 @@
 # Author : Vongkeo KSV
 
 # Pull the base image 
-FROM node:20.15.0 as build-stage
+FROM node:22.19.0 as build-stage
 
 # set working directory
 WORKDIR /app
