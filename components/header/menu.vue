@@ -9,51 +9,59 @@
             </div>
             <nav class="wsmenu clearfix">
                 <ul class="wsmenu-list nav-theme">
-                    <li aria-haspopup="true" class="mg_link">
-                        <a 
-                            href="#home" 
-                            class="h-link menu-item"
-                            :class="{ 'active': activeSection === 'home' }"
-                        >
-                            Inicio
-                        </a>
-                    </li>
-                    <li aria-haspopup="true" class="mg_link">
-                        <a 
-                            href="#nuestro-lugar" 
-                            class="h-link menu-item"
-                            :class="{ 'active': activeSection === 'nuestro-lugar' }"
-                        >
-                            Nuestro lugar
-                        </a>
-                    </li>
-                    <li aria-haspopup="true" class="mg_link">
-                        <a 
-                            href="#cabanias" 
-                            class="h-link menu-item"
-                            :class="{ 'active': activeSection === 'cabanias' }"
-                        >
-                            Cabañas
-                        </a>
-                    </li>
-                    <li aria-haspopup="true" class="mg_link">
-                        <a 
-                            href="#mapa" 
-                            class="h-link menu-item"
-                            :class="{ 'active': activeSection === 'mapa' }"
-                        >
-                            Ubicación
-                        </a>
+                    <template v-if="route.path === '/'">
+                        <li aria-haspopup="true" class="mg_link">
+                            <a 
+                                href="#home" 
+                                class="h-link menu-item"
+                                :class="{ 'active': activeSection === 'home' }"
+                            >
+                                Inicio
+                            </a>
+                        </li>
+                        <li aria-haspopup="true" class="mg_link">
+                            <a 
+                                href="#nuestro-lugar" 
+                                class="h-link menu-item"
+                                :class="{ 'active': activeSection === 'nuestro-lugar' }"
+                            >
+                                Nuestro lugar
+                            </a>
+                        </li>
+                        <li aria-haspopup="true" class="mg_link">
+                            <nuxt-link 
+                                to="/imagenes" 
+                                class="h-link menu-item"
+                                :class="{ 'active': route.path === '/imagenes' }"
+                            >
+                                Imágenes
+                        </nuxt-link>
+                        </li>
+                        <li aria-haspopup="true" class="mg_link">
+                            <a 
+                                href="#mapa" 
+                                class="h-link menu-item"
+                                :class="{ 'active': activeSection === 'mapa' }"
+                            >
+                                Ubicación
+                            </a>
+                        </li>
+                    </template>
+                    
+                    <li v-else aria-haspopup="true" class="mg_link">
+                        <nuxt-link to="/" class="h-link menu-item">Inicio</nuxt-link>
                     </li>
                 </ul>
             </nav>
-            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import { useRoute } from 'vue-router'; // Usa `vue-router` para `useRoute`
 
+const route = useRoute();
 const activeSection = ref('home');
 
 const handleScroll = () => {
@@ -69,13 +77,15 @@ const handleScroll = () => {
         header?.classList.remove("scroll");
     }
 
-    // Detectar la sección activa
-    detectActiveSection();
+    // Detectar la sección activa solo si estamos en la página de inicio
+    if (route.path === '/') {
+        detectActiveSection();
+    }
 };
 
 const detectActiveSection = () => {
     const sections = ['home', 'nuestro-lugar', 'cabanias', 'mapa'];
-    const scrollPosition = window.scrollY + 150; // offset para mejor detección
+    const scrollPosition = window.scrollY + 150;
 
     for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -94,10 +104,12 @@ const detectActiveSection = () => {
 onMounted(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     
-    // Detectar sección inicial al cargar
-    nextTick(() => {
-        detectActiveSection();
-    });
+    // Detectar sección inicial al cargar si estamos en la página de inicio
+    if (route.path === '/') {
+        nextTick(() => {
+            detectActiveSection();
+        });
+    }
 });
 
 onUnmounted(() => {

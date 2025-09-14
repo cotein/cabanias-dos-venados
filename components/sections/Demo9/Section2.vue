@@ -94,7 +94,4 @@
     </section>
     <hr class="divider" />
 </template>
-<style scope>
-    #features-6 { 
-    }
-</style>
+

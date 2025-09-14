@@ -52,7 +52,6 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0); /* Sombra para que el texto resalte sobre la imagen */
   line-height: 1.2;
   color: #ffffff;
-  margin-top: -31%;
 }
 
 /* Estilos para la segunda línea (subtítulo) */
@@ -65,14 +64,23 @@
 /* Media Query para celulares: ajusta el tamaño de la fuente en pantallas pequeñas */
 @media (max-width: 768px) {
   .hero-wrapper {
-    height: 60vh; /* Un poco menos de altura en móviles */
+    height: 35vh; /* Un poco menos de altura en móviles */
   }
   .titulo-principal {
     font-size: 2.5rem;
   }
+  .hero-image-bg img {
+    object-position: 50% 50%; /* Center the image */
+  }
   .titulo-principal .subtitulo {
     font-size: 1.3rem;
-    font-weight: 800;
   }
 }
+
+/* @media (min-width: 769px) {
+  .titulo-principal {
+    margin-top: -31%; 
+  }
+} */
+
 </style>
