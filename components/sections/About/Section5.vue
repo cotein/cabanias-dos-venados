@@ -2,6 +2,18 @@
     <section class="bg--04 bg--fixed py-100 ct-01 content-section division">
         <div class="container">
 
+            <div class="content-block mb-5" id="cabanias_1">
+                <div class="row d-flex align-items-center min-vh-50">
+                    <div class="col-12 order-md-1">
+                        <div class="img-block wow fadeInLeft h-100 d-flex align-items-center justify-content-center">
+                            <div class="w-100">
+                                <ElementsImageCarousel :images="dos_personas_vertical" class="rounded shadow-lg" object-fit="contain" />
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+
             <div class="content-block mb-5" id="cabanias">
                 <div class="row d-flex align-items-center min-vh-50">
                     <div class="col-12 order-md-1">
@@ -13,6 +25,8 @@
                     </div>
                     </div>
             </div>
+
+            
 
             <div class="row">
                 <div class="col-12">
@@ -59,6 +73,7 @@
                 </div>
             </div>
         </div>
+     
     </section>
 </template>
 
@@ -73,6 +88,18 @@ const dos_personas = [
     { src: '/cabanias/interior/dp/horizontal/dp18.jpg', alt: 'Cabaña interior dp18' },
     { src: '/cabanias/interior/dp/horizontal/DSCN8733.webp', alt: 'Cabaña interior DSCN8733' },
     { src: '/cabanias/interior/dp/horizontal/unnamed(9).webp', alt: 'Cabaña interior unnamed 9' }
+];
+
+const dos_personas_vertical = [
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0024.jpg', alt: 'Cabaña interior dp1' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0023.jpg', alt: 'Cabaña interior dp4' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0022.jpg', alt: 'Cabaña interior dp5' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0021.jpg', alt: 'Cabaña interior dp10' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0020.jpg', alt: 'Cabaña interior dp16' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0019.jpg', alt: 'Cabaña interior dp18' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0018.jpg', alt: 'Cabaña interior dp18' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0017.jpg', alt: 'Cabaña interior dp18' },
+    { src: '/cabanias/interior/dp/vertical/IMG-20250914-WA0016.jpg', alt: 'Cabaña interior dp18' },
 ];
 </script>
 
