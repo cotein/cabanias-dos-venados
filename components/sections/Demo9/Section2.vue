@@ -88,6 +88,26 @@
                 </div>
                 <!-- End row -->
             </div>
+
+            <div class="content-block mb-5 mt-5">
+                <div class="row d-flex align-items-center min-vh-50">
+                    <div class="col-md-6 order-md-1">
+                        <div class="txt-block left-column wow fadeInRight h-100 d-flex align-items-center">
+                            <div>
+                                <p class="p-lg">&quot;Desconéctate de la rutina y sumérgete en la tranquilidad de Merlo. Rodeadas de naturaleza y con vistas a las sierras, nuestras cabañas son el refugio perfecto para relajarse. Ya sea que busques aventura o un merecido descanso, nuestras cabañas son la base ideal para tu próxima escapada. ¡Te esperamos!.&quot;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-2">
+                        <div class="img-block wow fadeInLeft h-100 d-flex align-items-center">
+                            <div class="w-100">
+                                <video src="/videos/cbs1.mp4" width="840" height="480" loop controls
+                        poster="/videos/cbs1.png"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- END FEATURES-6 WRAPPER -->
         </div>
         <!-- End container -->
